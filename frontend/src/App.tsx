@@ -200,20 +200,27 @@ function App() {
           </>
         ) : tasks.length > 0 ? (
           <>
-            {tasks
-              .filter((e) => !e.completed)
-              .map((task, index) => (
-                <Card
-                  key={task.id}
-                  task={task}
-                  index={index}
-                  handleComplete={handleComplete}
-                  handleUpdate={handleUpdate}
-                  handleDelete={handleDelete}
-                  allTasks={allTasks}
-                  setInputActive={setInputActive}
-                />
-              ))}
+            {tasks.filter((e) => !e.completed).length > 0 ? (
+              tasks
+                .filter((e) => !e.completed)
+                .map((task, index) => (
+                  <Card
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleComplete={handleComplete}
+                    handleUpdate={handleUpdate}
+                    handleDelete={handleDelete}
+                    allTasks={allTasks}
+                  />
+                ))
+            ) : (
+              <div className="py-6 text-center">
+                <p className="text-lg text-slate-200 font-medium">
+                  No on going tasks.
+                </p>
+              </div>
+            )}
 
             {tasks.filter((e) => e.completed).length > 0 && (
               <>
@@ -232,7 +239,6 @@ function App() {
                   handleUpdate={handleUpdate}
                   handleDelete={handleDelete}
                   allTasks={allTasks}
-                  setInputActive={setInputActive}
                 />
               ))}
           </>

@@ -8,7 +8,6 @@ const Card: FC<{
   handleUpdate: (e: React.FormEvent, index: number) => void;
   handleDelete: (id: string) => void;
   allTasks: MutableRefObject<HTMLInputElement[]>;
-  setInputActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({
   task,
   index,
@@ -16,7 +15,6 @@ const Card: FC<{
   handleUpdate,
   handleDelete,
   allTasks,
-  setInputActive,
 }) => {
   return (
     <div
@@ -64,7 +62,6 @@ const Card: FC<{
         <div className="flex items-center gap-1">
           <button
             onClick={() => {
-              setInputActive(true);
               allTasks.current[index].focus();
             }}
             className="p-2 border border-transparent hover:border-gray-600 transition duration-150 rounded-md bg-transparent hover:bg-[#393d46]"

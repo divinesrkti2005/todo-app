@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>React Todo Application</title>
+      <title>Full-stack Todo Application</title>
     </Helmet>
     <App />
   </React.StrictMode>
